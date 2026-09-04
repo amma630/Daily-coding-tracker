@@ -1,1 +1,49 @@
 
+Question 1: Second Largest Element
+Problem
+
+Given an array, find the second largest distinct element.
+
+Example:
+
+Array: 10 5 20 8 20 15
+Output: 15
+
+code in c++
+
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+int main() {
+    vector<int> arr = {10, 5, 20, 8, 20, 15};
+
+    int largest = INT_MIN;
+    int secondLargest = INT_MIN;
+
+    for (int num : arr) {
+        if (num > largest) {
+            secondLargest = largest;
+            largest = num;
+        }
+        else if (num > secondLargest && num < largest) {
+            secondLargest = num;
+        }
+    }
+
+    cout << "Second Largest: " << secondLargest;
+
+    return 0;
+}
+
+
+Complexity
+Time Complexity: O(N)
+Space Complexity: O(1)
+
+
+
+
+
+
